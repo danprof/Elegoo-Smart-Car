@@ -1,0 +1,26 @@
+#######################################
+# Syntax Coloring Map For Flasher
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+elegoo_car	KEYWORD1	Flasher
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+Car_init	KEYWORD2
+Forward	KEYWORD2
+Back	KEYWORD2
+Left	KEYWORD2
+Right	KEYWORD2
+stopCar	KEYWORD2
+car_init KEYWORD2
+stateChange	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
