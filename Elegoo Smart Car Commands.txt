@@ -1,0 +1,29 @@
+Elegoo Smart Car Commands 
+
+Both for IR and/or Bluetooth must send a single character.
+
+IR is programmed as follows:
+
+key	      char  command
+-----------------------	
+Up arrow    - 'f': Forward 
+Down arrow  - 'b': Back
+Left arrow  - 'l': Left(90) 
+Right arrow - 'r': Right(90)
+OK          - 's': stop Car
+1           - '1': motorSpeed = slow_speed
+2           - '2': motorSpeed = med_speed
+3           - '3': motorSpeed = fast_speed 
+4           - 'j': Left(20)
+5           -  not used
+6           - 'p': Right(20)
+7           - 'k': Left(45)
+8           -  not used
+9           - 'q': Right(45)
+0           -  not used
+*           - 'a': stateChange - toggles light On and OFF
+#           - '#': scanMode  - toggles between single scan and continuous scan  
+
+
+For Bluetooth, program the Elegoo BLE App  buttons to send the character
+corresponding to the command.
