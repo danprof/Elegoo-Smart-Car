@@ -40,6 +40,9 @@ void Elegoo::Forward(int carSpeed){ 	//go forward
   digitalWrite(IN2,LOW);
   digitalWrite(IN3,LOW);
   digitalWrite(IN4,HIGH);
+  sound = true;				// sound is ON by default
+  sMode = true;				// scan mode is set to Continuous by default
+  opMode = "IR";			// IR mode set by default
 }
 //------------------------------
 void Elegoo::Back(int carSpeed){	// back up

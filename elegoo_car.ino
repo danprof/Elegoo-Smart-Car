@@ -11,56 +11,50 @@
 // Last Revised: Nov 11, 2020
 
 #include <Servo.h>
-Servo myservo;   // create instance of servo
+Servo myservo;                // create instance of servo
 
 #include "Elegoo.h"
-Elegoo robot;   // create instance of car
+Elegoo robot;                 // create instance of car
 #include <IRremote.h>
 
-
-
-
-//int RECV_PIN = 12;        // InfraRed receive pin defined in Elegoo.h
+//int RECV_PIN = 12;         // InfraRed receive pin defined in Elegoo.h
 IRrecv irrecv(RECV_PIN);
 decode_results results;
 
-
-char getByte;    // serial input buffer
-char ld = 's';   // last direction indicator
- 
+char getByte;                // serial input buffer
+char ld = 's';               // last direction indicator
 
 //int Echo = A4;  
 //int Trig = A5;
 
-//---------------------
+//------------------------------------------------
 void setup() {
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB
+  ; // wait for serial port to connect. Needed for native USB
   }
-  Serial.println("\n\n\n\n\n\n\n\n\n");
+  Serial.println("\n\n\n\n\n\n\n\n\n");       // clear monitor
   if (Serial){
      Serial.println("Serial Communication Active");
   }
   Serial.println("Enabling IRin");
-  irrecv.enableIRIn(); // Start the Infra Red receiver
+  irrecv.enableIRIn();                        // Start the Infra Red receiver
   Serial.println(" - Infrared Enabled");
   Serial.println("Initializing Car ");
   Serial.print(" - Motion set to ");
   robot.car_init();
   Serial.println(" - Car initialized"); 
    
-  myservo.attach(3);  // attach servo on pin 3 to servo object
-  myservo.write(0);   // move servos to center position -> 0°
+  myservo.attach(3);                         // attach servo on pin 3 to servo object
+  myservo.write(0);                          // move servos to center position -> 0°
   delay(500);
   myservo.write(90);  // move servos to center position -> 90°
   Serial.println(" - Servo centered");
   Serial.println("Ready");
 
-  pinMode(Echo, INPUT);   // setup sonar 
+  pinMode(Echo, INPUT);                      // setup sonar 
   pinMode(Trig, OUTPUT);
 }
-
 //-------------------------------------------
 
 void loop(){
@@ -73,7 +67,7 @@ void loop(){
 
     if (Serial.available() > 0) {
        // read the incoming byte:
-       getByte = Serial.read();	// read keyboard or BlueTooth command
+       getByte = Serial.read();	            // read keyboard or BlueTooth command
        Serial.print("getByte = ");
        Serial.println(getByte);
        if( getByte != ld){
@@ -91,7 +85,7 @@ void loop(){
     
         robot.irCommand(results.value);
 
-        irrecv.resume(); // Receive the next value
+        irrecv.resume();                  // Receive the next value
   }
   
 //----------------------------------------------------
@@ -99,15 +93,15 @@ void loop(){
 
   if(robot.opMode == "line"){
     if(LT_M){
-      robot.execute('1');    // speed Slow
+      robot.execute('1');                 // speed Slow
       robot.execute('f');
     }
     else if(LT_R) { 
-      robot.execute('p');   // right 20
+      robot.execute('p');                 // right 20
       while(LT_R);                             
     }   
    else if(LT_L) {
-      robot.execute('j');   // left 20
+      robot.execute('j');                 // left 20
       while(LT_L);  
     }
   }

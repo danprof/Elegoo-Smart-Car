@@ -36,8 +36,9 @@ private:
 public:
    // variables
    char lastDirection;
-   boolean sMode = 1;      // scan mode(0=single, 1=continuous)
-   String opMode = "roam";  // default operation mode
+   bool sMode = 1;     		// scan mode(0=single, 1=continuous)
+   bool sound = true;		// sound setting
+   String opMode = "roam"; 	// default operation mode
 
    // functions
    void car_init();
