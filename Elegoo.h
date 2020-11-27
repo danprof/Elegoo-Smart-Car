@@ -9,16 +9,19 @@ extern Servo myservo;
 class Elegoo 
 {
 
-  #define ENA 5		// left and right motor Enables
+  #define ENA 5			// left and right motor Enables
   #define ENB 6		
-  #define IN1 7		// motor direction control pins
+  #define IN1 7			// motor direction control pins
   #define IN2 8
   #define IN3 9
   #define IN4 11
-  #define LED 13	// built in LED
-  #define RECV_PIN 12	// IR receiver
-  #define Echo  A4  	// sonar Echo
-  #define Trig  A5	// sonar Trig
+  #define LED 13		// built in LED
+  #define RECV_PIN 12		// IR receiver
+  #define Echo  A4  		// sonar Echo
+  #define Trig  A5		// sonar Trig
+  #define LT_R !digitalRead(10)	// Line Tracking IO define
+  #define LT_M !digitalRead(4)
+  #define LT_L !digitalRead(2)
 
 private:
    bool state = LOW;		// current drive state (forward,reverse,stop)
@@ -33,8 +36,10 @@ private:
 public:
    // variables
    char lastDirection;
-   boolean sMode = 1;      // scan mode(0=single, 1=continuous)
-
+   bool sMode = 1;     		// Sonar  0 = Single / 1 = Continuous
+   bool sound = true;		// Sound  0 = OFF / 1 = ON
+   int opMode = 2; 		// opMode 0 = "line", 1 = "roam", 2 = "BLE", 3 = "IR"
+                                
    // functions
    void car_init();
    void Forward(int);

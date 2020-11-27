@@ -6,13 +6,16 @@
 
 //------------------------------
 void Elegoo::car_init(){		// initialize pins to output
-  pinMode(ENA,OUTPUT);
+  pinMode(ENA,OUTPUT);			// motor control
   pinMode(ENB,OUTPUT);
   pinMode(IN1,OUTPUT);
   pinMode(IN2,OUTPUT);
   pinMode(IN3,OUTPUT);
   pinMode(IN4,OUTPUT);
-  pinMode(LED, OUTPUT);
+  pinMode(LED, OUTPUT);			// Builtin LED
+  pinMode(LT_R,INPUT);			// line tracking sensors
+  pinMode(LT_M,INPUT);
+  pinMode(LT_L,INPUT);
 
   stopCar();
   for(int i=1; i<4; i++){		
@@ -37,6 +40,9 @@ void Elegoo::Forward(int carSpeed){ 	//go forward
   digitalWrite(IN2,LOW);
   digitalWrite(IN3,LOW);
   digitalWrite(IN4,HIGH);
+  sound = true;				// sound is ON by default
+  sMode = true;				// scan mode is set to Continuous by default
+  opMode = "IR";			// IR mode set by default
 }
 //------------------------------
 void Elegoo::Back(int carSpeed){	// back up
