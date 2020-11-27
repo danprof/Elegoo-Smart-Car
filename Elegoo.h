@@ -19,7 +19,7 @@ class Elegoo
   #define RECV_PIN 12		// IR receiver
   #define Echo  A4  		// sonar Echo
   #define Trig  A5		// sonar Trig
-  #define LT_R !digitalRead(10)	//Line Tracking IO define
+  #define LT_R !digitalRead(10)	// Line Tracking IO define
   #define LT_M !digitalRead(4)
   #define LT_L !digitalRead(2)
 
@@ -36,10 +36,10 @@ private:
 public:
    // variables
    char lastDirection;
-   bool sMode = 1;     		// scan mode(0=single, 1=continuous)
-   bool sound = true;		// sound setting
-   String opMode = "roam"; 	// default operation mode
-
+   bool sMode = 1;     		// Sonar  0 = Single / 1 = Continuous
+   bool sound = true;		// Sound  0 = OFF / 1 = ON
+   int opMode = 2; 		// opMode 0 = "line", 1 = "roam", 2 = "BLE", 3 = "IR"
+                                
    // functions
    void car_init();
    void Forward(int);
